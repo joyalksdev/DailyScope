@@ -1,0 +1,22 @@
+body{
+    height: 100%;
+}
+.card {
+    height: 100%;
+}
+
+.card-img-top {
+    height: 200px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+::selection{
+    background-color: #0080ff7c;
+    color: #2d2b2b;
+}
+
+footer{
+    position: static !important;
+    bottom: 0px !important;
+}
