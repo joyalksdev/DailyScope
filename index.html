@@ -20,7 +20,8 @@
 
         <nav class="navbar navbar-expand-lg border-bottom p-3 shadow-sm">
             <div class="container">
-                <a href="index.html" class="logo navbar-brand fw-semibold">
+                <a href="index.html" class="logo navbar-brand fw-semibold"
+                    translate="no">
                     <span
                         class="fw-bold">Daily</span>Scope</a>
 
@@ -62,10 +63,14 @@
                             Language
                         </button>
                         <ul class="dropdown-menu">
-                            <li><button class="dropdown-item" onclick="translatePage('hi')">Hindi</button></li>
-                            <li><button class="dropdown-item" onclick="translatePage('ml')">Malayalam</button></li>
-                            <li><button class="dropdown-item" onclick="translatePage('ta')">Tamil</button></li>
-                            <li><button class="dropdown-item" onclick="translatePage('en')">English</button></li>
+                            <li><button class="dropdown-item"
+                                    onclick="translatePage('hi')">Hindi</button></li>
+                            <li><button class="dropdown-item"
+                                    onclick="translatePage('ml')">Malayalam</button></li>
+                            <li><button class="dropdown-item"
+                                    onclick="translatePage('ta')">Tamil</button></li>
+                            <li><button class="dropdown-item"
+                                    onclick="translatePage('en')">English</button></li>
                         </ul>
                     </div>
 
@@ -97,6 +102,15 @@
                 </div>
             </div>
 
+            <div id="displayErorr" class="container d-none col-6 bg-danger-subtle rounded shadow-md p-5">
+                <div class="d-flex flex-column align-items-center">
+                    <i class="bi bi-exclamation-triangle fs-1 text-danger"></i>
+                    <h2>Erorr</h2>
+                    <p id="erorrName" class="fw-bold text-danger lead">Cannot fetch
+                        api</p>
+                </div>
+            </div>
+
             <div class="container">
 
                 <div id="displayCards" class="row">
@@ -118,7 +132,7 @@
 
                     <div>
 
-                        <a href="index.html"
+                        <a translate="no" href="index.html"
                             class="logo navbar-brand fs-3 fw-semibold">
                             <span class="fw-bold">Daily</span>Scope</a>
 
@@ -127,14 +141,20 @@
                             meaningful stories.</p>
                     </div>
 
-                    <ul class="d-flex list-unstyled gap-4">
-                        <li class="nav-item"><a href="#"
-                                class="nav-link">Contact</a></li>
+                    <div>
+                        <ul class="d-flex list-unstyled gap-4">
+                            <li class="nav-item"><a href="#"
+                                    class="nav-link">Contact</a></li>
 
-                        <li class="nav-item"><a href="#"
-                                class="nav-link">Contact</a></li>
+                            <li class="nav-item"><a href="#"
+                                    class="nav-link">Newsletter</a></li>
 
-                    </ul>
+                        </ul>
+
+                        <p translate="no">&copy;2025 Daily Scope. All right
+                            reserved</p>
+
+                    </div>
                 </div>
             </div>
         </footer>

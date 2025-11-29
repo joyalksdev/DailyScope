@@ -1,5 +1,10 @@
+const apiKey = "958e8729d9275c5a055c8fe91cace9d1";
+
 const loader = document.getElementById("loader");
 const heading = document.getElementById("heading");
+
+const displayErorr = document.getElementById("displayErorr")
+const erorrName = document.getElementById("erorrName")
 
 // Translate page using Google translator
 function translatePage(lang) {
@@ -27,11 +32,12 @@ const fetchNewsByCategory = async (category) => {
   try {
     loader.classList.remove("d-none");
 
-    const url = `https://newsapi.org/v2/top-headlines?category=${category}&country=us&apiKey=126a3d38a0ac4efaae38cfc99af0e7be`;
+    const url = `https://gnews.io/api/v4/search?q=${category}&lang=en&max=20&apikey=${apiKey}`;
 
     const response = await fetch(url);
     const data = await response.json();
     displayNews(data.articles);
+
     loader.classList.add("d-none");
   } catch (error) {
     console.error(error);
@@ -42,7 +48,7 @@ const loadDefaultNews = async () => {
   try {
     loader.classList.remove("d-none");
 
-    const url = `https://newsapi.org/v2/top-headlines?country=us&apiKey=126a3d38a0ac4efaae38cfc99af0e7be`;
+    const url = `https://gnews.io/api/v4/search?q=latest&lang=en&max=20&apikey=${apiKey}`;
 
     const response = await fetch(url);
     const data = await response.json();
@@ -53,6 +59,8 @@ const loadDefaultNews = async () => {
     loader.classList.add("d-none");
   } catch (error) {
     console.error(error);
+    displayErorr.classList.remove('d-none')
+    erorrName.innerText=error
   }
 };
 
@@ -70,16 +78,16 @@ const displayNews = (news) => {
                             }</div>
 
                             <div class="d-flex justify-content-between px-2">
-                                <div id="author" class="fs-6 mb-2">Author: ${
-                                  newsdata.author || "Unknown"
+                                <div id="author" class="fs-6 mb-2">Pulblished Date: ${
+                                  newsdata.publishedAt || "Null"
                                 }</div>
-                                <div id="source" class="fs-6 mb-2">Source: ${
+                                <div id="source" class="fs-6 mb-2">Source:${
                                   newsdata.source.name
                                 }</div>
                             </div>
 
                             <img
-                                src="${newsdata.urlToImage}"
+                                src="${newsdata.image}"
                                 alt="" class="card-img-top">
 
                             <div class="card-body p-0 py-3">
@@ -109,7 +117,8 @@ searchForm.addEventListener("submit", (e) => {
 const searchNews = async (search) => {
   if (!search) return;
   loader.classList.remove("d-none");
-  const url = `https://newsapi.org/v2/everything?q=${search}&apiKey=126a3d38a0ac4efaae38cfc99af0e7be`;
+
+  const url = `https://gnews.io/api/v4/search?q=${search}&lang=en&max=20&apikey=${apiKey}`;
 
   const response = await fetch(url);
   const data = await response.json();
