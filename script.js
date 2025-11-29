@@ -61,6 +61,7 @@ const loadDefaultNews = async () => {
     console.error(error);
     displayErorr.classList.remove('d-none')
     erorrName.innerText=error
+    loader.classList.add('d-none')
   }
 };
 
